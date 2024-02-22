@@ -6,19 +6,20 @@ let running = true;
 
 function startGame() {
   const input = parseInt(document.getElementById("numberToGuess").value);
+  const message = document.getElementById("message");
   if (isNaN(input)) {
-    window.alert("Please enter a valid number!");
+    message.innerHTML = "Please enter a valid number!";
     return;
   } else if (input < min || input > max) {
-    window.alert("Please enter a valid number!");
+    message.innerHTML = "Please enter a valid number!";
   } else {
     attempts++;
     if (input < answer) {
-      window.alert("Too Low");
+      message.innerHTML = "Your guess is too low! Try again";
     } else if (input > answer) {
-      window.alert("Too High");
+      message.innerHTML = "Your guess is too High! Try again";
     } else {
-      window.alert(`CORRECT! Attempts ${attempts}.`);
+      message.innerHTML = `CORRECT! Attempts ${attempts}.`;
     }
   }
 }
